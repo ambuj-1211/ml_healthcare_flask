@@ -26,6 +26,3 @@ def predict_disease():
         except Exception as e:
             return jsonify({'error': str(e)}), 500
     return jsonify({'error': 'Invalid request method'}), 405
-
-if __name__ == '__main__':
-    application.run(host="0.0.0.0", debug=True)
