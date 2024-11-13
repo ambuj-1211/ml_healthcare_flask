@@ -9,10 +9,10 @@ from flask_cors import CORS
 pp = preproc.preprocessor()
 model = pickle.load(open('model.pkl', 'rb'))
 
-application = Flask(__name__)
-CORS(application)  # Enable CORS for all routes
+app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
-@application.route('/predict', methods= ['POST','GET'])
+@app.route('/predict', methods= ['POST','GET'])
 def predict_disease():
     
     if request.method == 'POST':
