@@ -1,9 +1,6 @@
-from preprocessor import preprocessor
-# import tensorflow as tf
-# from tensorflow.keras.preprocessing.sequence import pad_sequences
-# from tensorflow.keras.preprocessing.text import one_hot
 import pickle
 
+from preprocessor import preprocessor
 
 
 def predict(text):

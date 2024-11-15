@@ -1,16 +1,17 @@
 import pickle
 
 import numpy as np
-import predictor as predict  # Ensure the correct import path
-import preprocessor as preproc  # Ensure the correct import path
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+
+import predictor as predict
+import preprocessor as preproc
 
 pp = preproc.preprocessor()
 model = pickle.load(open('model.pkl', 'rb'))
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app)
 
 @app.route('/predict', methods= ['POST','GET'])
 def predict_disease():
@@ -22,7 +23,7 @@ def predict_disease():
             symptoms = pp.forward(symptoms)
             my_prediction = model.predict(symptoms)
             my_prediction_str = ' '.join(my_prediction.astype(str))
-            return jsonify({'prediction': my_prediction_str}), 200  # Return a 200 status code for success
+            return jsonify({'prediction': my_prediction_str}), 200
         except Exception as e:
             return jsonify({'error': str(e)}), 500
     return jsonify({'error': 'Invalid request method'}), 405
