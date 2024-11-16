@@ -13,6 +13,10 @@ model = pickle.load(open('model.pkl', 'rb'))
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/', methods= ['GET'])
+def first_page():
+    return f"This is to check whether tha api is working or not"
+
 @app.route('/predict', methods= ['POST','GET'])
 def predict_disease():
     
