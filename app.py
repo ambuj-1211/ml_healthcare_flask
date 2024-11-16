@@ -15,7 +15,7 @@ CORS(app)
 
 @app.route('/', methods= ['GET'])
 def first_page():
-    return f"This is to check whether tha api is working or not"
+    return f"Your api is working properly."
 
 @app.route('/predict', methods= ['POST','GET'])
 def predict_disease():
