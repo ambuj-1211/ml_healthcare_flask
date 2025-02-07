@@ -1,14 +1,12 @@
 import pickle
 
 import numpy as np
+import preprocessor as preproc
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
-import predictor as predict
-import preprocessor as preproc
-
 pp = preproc.preprocessor()
-model = pickle.load(open('model.pkl', 'rb'))
+model = pickle.load(open('latest_model.pkl', 'rb'))
 
 app = Flask(__name__)
 CORS(app)
